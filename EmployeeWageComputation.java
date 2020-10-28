@@ -8,16 +8,15 @@ public class EmployeeWageComputation {
 		//variables
 		int empHours=0, dailyWage=0;
 		int empCheck=(int) Math.floor(Math.random() * 10) % 3;
-		if(empCheck==IS_FULL_TIME){
-			empHours=8;
-			System.out.println("Full time Employee");
-		}
-		else if(empCheck==IS_PART_TIME){
-			empHours=4;
-			System.out.println("Part time Employee");
-		}
-		else{
-			System.out.println("Employee is Absent");
+		switch(empCheck){
+			case IS_PART_TIME:
+				empHours=8;
+				break;
+			case IS_FULL_TIME:
+				empHours=4;
+				break;
+			default:
+				empHours=0;
 		}
 		dailyWage=empHours*EMP_RATE_PER_HOUR;
 		System.out.println("Employee daily wage - "+dailyWage);
