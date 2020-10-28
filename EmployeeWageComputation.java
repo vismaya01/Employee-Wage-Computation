@@ -1,15 +1,20 @@
 public class EmployeeWageComputation {
 	//constants
-	public static final int IS_EMP_PRESENT = 1;
+	public static final int IS_PART_TIME = 1;
+	public static final int IS_FULL_TIME = 2;
 	public static final int EMP_RATE_PER_HOUR = 20;
 	//Calculating daily wage of employee 
 	public static void employeeDailyWage(){
 		//variables
 		int empHours=0, dailyWage=0;
-		int empCheck=(int) Math.floor(Math.random() * 10) % 2;
-		if(empCheck==IS_EMP_PRESENT){
+		int empCheck=(int) Math.floor(Math.random() * 10) % 3;
+		if(empCheck==IS_FULL_TIME){
 			empHours=8;
-			System.out.println("Employee is Present");
+			System.out.println("Full time Employee");
+		}
+		else if(empCheck==IS_PART_TIME){
+			empHours=4;
+			System.out.println("Part time Employee");
 		}
 		else{
 			System.out.println("Employee is Absent");
