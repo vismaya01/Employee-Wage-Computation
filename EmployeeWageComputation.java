@@ -5,6 +5,7 @@ public class EmployeeWageComputation {
 	public static final int EMP_RATE_PER_HOUR = 20;
 	public static final int NUM_OF_WORKING_DAYS = 20;
 	public static final int MAX_HRS_IN_MONTH = 100;
+
 	//Calculating monthly wage of employee
 	public static void employeeMonthlyWage(){
 		//variables
