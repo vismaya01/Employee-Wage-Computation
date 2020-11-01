@@ -5,7 +5,7 @@ public class EmployeeWageComputation {
 	public static final int IS_FULL_TIME = 2;
 
 	//Calculating monthly wage of employee
-	public static void employeeMonthlyWage(int wagePerHour,int workingDays,int workingHours){
+	public static void employeeMonthlyWage(String company ,int wagePerHour,int workingDays,int workingHours){
 		//variables
 		int empHours=0;
 		int totalWorkingDays=0, totalEmpHours=0;
@@ -27,19 +27,13 @@ public class EmployeeWageComputation {
 	System.out.println("total employee working hour - "+totalEmpHours);
         System.out.println("total employee working days - "+totalWorkingDays);
         int totalEmpWage = totalEmpHours * wagePerHour;
-        System.out.println("Total employee wage - "+totalEmpWage);
+        System.out.println("Total employee wage for company : "+company+" is - "+totalEmpWage);
 	}
 
 	public static void main(String[] args){
 		System.out.println("Welcome to Employee Wage Computation");
 		//take user input for each company
-		Scanner sc = new Scanner(System.in);
-		System.out.println("enter the wage per hour");
-		int wagePerHour=sc.nextInt();
-		System.out.println("enter the number of working days");
-		int numWorkingDays=sc.nextInt();
-		System.out.println("enter the number of working hour");
-		int numWorkingHours=sc.nextInt();
-		employeeMonthlyWage(wagePerHour,numWorkingDays,numWorkingHours);
+		employeeMonthlyWage("DMart",20,20,100);
+		employeeMonthlyWage("Reliance",10,25,150);
 	}
 }
