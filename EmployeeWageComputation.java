@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class EmployeeWageComputation {
 	//constants
 	public static final int IS_PART_TIME = 1;

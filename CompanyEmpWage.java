@@ -7,6 +7,7 @@ public class CompanyEmpWage {
         public int totalEmpWage;
 
         public CompanyEmpWage(String company ,int wagePerHour,int workingDays,int workingHours){
+
                 this.company=company;
                 this.wagePerHour=wagePerHour;
                 this.workingDays=workingDays;
