@@ -1,6 +1,12 @@
 import java.util.Scanner;
 
-public class EmployeeWageComputation {
+interface EmployeeWage {
+
+	void addCompanyEmpWage(String company ,int wagePerHour,int workingDays,int workingHours);
+	void computeEmpWage();
+}
+
+public class EmployeeWageComputation implements EmployeeWage {
 	//constants
 	public static final int IS_PART_TIME = 1;
 	public static final int IS_FULL_TIME = 2;
@@ -12,12 +18,12 @@ public class EmployeeWageComputation {
 		companyEmpWageArray = new CompanyEmpWage[5];
 	}
 
-	private void addCompanyEmpWage(String company ,int wagePerHour,int workingDays,int workingHours){
+	public void addCompanyEmpWage(String company ,int wagePerHour,int workingDays,int workingHours){
 		companyEmpWageArray[numOfCompany] = new CompanyEmpWage(company,wagePerHour,workingDays,workingHours);
 		numOfCompany++;
 	}
 
-	private void computeEmpWage() {
+	public void computeEmpWage() {
 		for (int i =0; i < numOfCompany; i++) {
 			companyEmpWageArray[i].setTotalEmpWage(this.computeEmpWage(companyEmpWageArray[i]));
 			System.out.println(companyEmpWageArray[i]);
