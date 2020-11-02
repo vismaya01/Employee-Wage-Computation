@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 interface EmployeeWage {
 
@@ -11,23 +12,23 @@ public class EmployeeWageComputation implements EmployeeWage {
 	public static final int IS_PART_TIME = 1;
 	public static final int IS_FULL_TIME = 2;
 
-	private int numOfCompany = 0;
-	private CompanyEmpWage[] companyEmpWageArray;
+	private ArrayList<CompanyEmpWage> companies;
 
 	public EmployeeWageComputation() {
-		companyEmpWageArray = new CompanyEmpWage[5];
+		companies = new ArrayList<CompanyEmpWage>();
 	}
 
 	public void addCompanyEmpWage(String company ,int wagePerHour,int workingDays,int workingHours){
-		companyEmpWageArray[numOfCompany] = new CompanyEmpWage(company,wagePerHour,workingDays,workingHours);
-		numOfCompany++;
+		companies.add(new CompanyEmpWage(company,wagePerHour,workingDays,workingHours));
 	}
 
 	public void computeEmpWage() {
-		for (int i =0; i < numOfCompany; i++) {
-			companyEmpWageArray[i].setTotalEmpWage(this.computeEmpWage(companyEmpWageArray[i]));
-			System.out.println(companyEmpWageArray[i]);
-		}
+		for(int i = 0; i<companies.size(); i++) {
+                     CompanyEmpWage company = companies.get(i);
+                     int totalWage = computeEmpWage(company);
+                     company.setTotalEmpWage(totalWage);
+                     System.out.println(company);
+                }
 	}
 	//Calculating monthly wage of employee
 	private int computeEmpWage(CompanyEmpWage companyEmpWage){
