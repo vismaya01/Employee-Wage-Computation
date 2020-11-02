@@ -7,6 +7,7 @@ interface EmployeeWage {
 
 	void addCompanyEmpWage(String company ,int wagePerHour,int workingDays,int workingHours);
 	void computeEmpWage();
+	int getTotalWageByCompanyName(final String name);
 }
 
 public class EmployeeWageComputation implements EmployeeWage {
@@ -24,6 +25,11 @@ public class EmployeeWageComputation implements EmployeeWage {
 
 	public void addCompanyEmpWage(String company ,int wagePerHour,int workingDays,int workingHours){
 		companies.add(new CompanyEmpWage(company,wagePerHour,workingDays,workingHours));
+	}
+
+	public int getTotalWageByCompanyName(final String name) {
+		final int totalWage = companyWages.get(name);
+		return totalWage;
 	}
 
 	public void computeEmpWage() {
@@ -64,5 +70,7 @@ public class EmployeeWageComputation implements EmployeeWage {
 		empWage.addCompanyEmpWage("Dmart",20,20,100);
 		empWage.addCompanyEmpWage("Reliance",10,25,150);
 		empWage.computeEmpWage();
+		final int totalWage = empWage.getTotalWageByCompanyName("Dmart");
+		System.out.println("Total Emp Wages for Dmart : "+totalWage);
 	}
 }
